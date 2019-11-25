@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class BMIServlet extends HttpServlet{
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 設定文件編碼
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
