@@ -18,6 +18,8 @@ public class UploadServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
+        //req.getParts().stream().filter(part -> part.getName().equals(""));
+        
     }
     
 }
