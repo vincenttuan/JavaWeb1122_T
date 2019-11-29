@@ -1,6 +1,7 @@
 package com.study.web.servlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -26,10 +27,21 @@ public class UploadServlet extends HttpServlet {
                 .filter(part -> part.getName().equals("uploadfile"))
                 .forEach(part -> {
                     try {
-                        part.write(part.getSubmittedFileName()); 
+                        part.write(part.getSubmittedFileName());
                         out.println(part.getSubmittedFileName() + " upload ok !");
                     } catch (Exception e) {
                         out.println(part.getSubmittedFileName() + " upload error !");
+                    }
+                });
+
+        req.getParts()
+                .stream()
+                .filter(part -> part.getName().equals("desc"))
+                .forEach(part -> {
+                    try {
+                        InputStream is = part.getInputStream();
+                        
+                    } catch (Exception e) {
                     }
                 });
 
