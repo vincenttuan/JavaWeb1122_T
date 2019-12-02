@@ -12,6 +12,7 @@
                     url: '../servlet/download?fn=car.jpg',
                     success: function (data, status, xhr) {
                         var response = "<b>data:</b> " + data + "<br/>";
+                        response += "<b>status:</b> " + status + "<br/>";
                         response += "<b>headers:</b> <br/>";
                         $.each(xhr.getAllResponseHeaders().split("\n"),
                                 function (i, value) {
