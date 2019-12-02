@@ -16,6 +16,9 @@ public class RedirectServlet extends HttpServlet {
         int n = Integer.parseInt(req.getParameter("n"));
         if(n == 0) {
             resp.sendRedirect("../index.html");
+            // 下列程式碼同等於 sendRedirect() 方法
+            //resp.setStatus(302);
+            //resp.setHeader("Location", "../index.html");
         } else {
             resp.sendError(500, "錯誤訊息...");
         }
