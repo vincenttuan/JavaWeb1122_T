@@ -28,12 +28,19 @@
             function download() {
                 window.location.href = '../servlet/download?fn=car.jpg';
             }
+            
+            function viewImage() {
+                $('#image').attr('src', '../servlet/download?fn=car.jpg');
+            }
         </script>
     </head>
     <body style="padding: 15px">
         <button class="pure-button pure-button-primary" onclick="getHeader()">Header request</button>
         <button class="pure-button pure-button-primary" onclick="download()">Download</button>
+        <button class="pure-button pure-button-primary" onclick="viewImage()">View image</button>
         <br/><br/>
         <div id="header-content"></div>
+        <img id="image">
+        
     </body>
 </html>
