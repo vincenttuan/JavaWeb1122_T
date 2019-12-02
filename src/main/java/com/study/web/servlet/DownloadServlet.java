@@ -13,6 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 public class DownloadServlet extends HttpServlet {
 
     @Override
+    protected void doHead(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("doHead()..");
+        doGet(req, resp);
+    }
+    
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String fn = req.getParameter("fn");
         // 檔案位置
