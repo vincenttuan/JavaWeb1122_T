@@ -8,7 +8,7 @@
         <script>
             function getHeader() {
                 $.ajax({
-                    type: 'HEAD',
+                    type: 'Head',
                     url: '../servlet/download?fn=car.jpg',
                     success: function (data, status, xhr) {
                         var response = "<b>data:</b> " + data + "<br/>";
@@ -41,6 +41,5 @@
         <br/><br/>
         <div id="header-content"></div>
         <img id="image">
-        
     </body>
 </html>

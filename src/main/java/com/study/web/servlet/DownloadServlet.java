@@ -14,7 +14,9 @@ public class DownloadServlet extends HttpServlet {
 
     @Override
     protected void doHead(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("utf-8");
         System.out.println("doHead()..");
+        resp.addHeader("message", "I love U");
         doGet(req, resp);
     }
     
