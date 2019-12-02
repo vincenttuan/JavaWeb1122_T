@@ -3,6 +3,8 @@ package com.study.web.servlet;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.Collection;
+import java.util.Collections;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +27,7 @@ public class ImageServlet extends HttpServlet {
         resp.setContentLength((int)file.length());
         // 寫入資料
         Files.copy(file.toPath(), resp.getOutputStream());
+        
     }
     
 }
