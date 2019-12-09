@@ -14,7 +14,11 @@ public class AuthFilter1 extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         System.out.println("Hello AuthFilter1 Begin");
-        chain.doFilter(req, res);
+        MyResponse myResponse = new MyResponse(res);
+        chain.doFilter(req, myResponse);
+        String html = myResponse.getHTMLString();
+        html = html.replace("<body", "<body background=\"../images/watermark.jpg\"");
+        res.getWriter().print(html);
         System.out.println("Hello AuthFilter1 End");
     }
     
