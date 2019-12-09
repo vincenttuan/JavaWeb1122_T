@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css">
     </head>
     <body style="padding: 15px">
+        <h2>Hi ${email}</h2>
         <table class="pure-table pure-table-bordered">
             <thead>
                 <tr>

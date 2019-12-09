@@ -14,7 +14,7 @@ public class ReportServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("ReportServlet");
-        
+        req.setAttribute("email", req.getParameter("email"));
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/report.jsp");
         rd.forward(req, resp);
         
