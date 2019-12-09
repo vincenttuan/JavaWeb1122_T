@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebFilter("/auth/*")
-public class AuthFilter2 extends HttpFilter {
+public class CuthFilter2 extends HttpFilter {
 
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-        System.out.println("Hello AuthFilter2 Begin");
+        System.out.println("Hello CuthFilter2 Begin");
         MyRequest myRequest = new MyRequest(req);
         String email = req.getParameter("email");
         if(email != null) {
@@ -21,7 +21,7 @@ public class AuthFilter2 extends HttpFilter {
         }
 
         chain.doFilter(myRequest, res);
-        System.out.println("Hello AuthFilter2 End");
+        System.out.println("Hello CuthFilter2 End");
     }
     
 }
