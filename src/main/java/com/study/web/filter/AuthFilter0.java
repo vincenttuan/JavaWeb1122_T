@@ -14,6 +14,8 @@ public class AuthFilter0 extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         System.out.println("Hello AuthFilter0 Begin");
+        chain.doFilter(req, res);
+        System.out.println("Hello AuthFilter0 End");
     }
     
 }
