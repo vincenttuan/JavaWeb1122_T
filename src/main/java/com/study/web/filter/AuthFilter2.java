@@ -16,7 +16,9 @@ public class AuthFilter2 extends HttpFilter {
         System.out.println("Hello AuthFilter2 Begin");
         MyRequest myRequest = new MyRequest(req);
         String email = req.getParameter("email");
-        myRequest.setParameter("email", email.substring(0, email.indexOf("@")));
+        if(email != null) {
+            myRequest.setParameter("email", email.substring(0, email.indexOf("@")));
+        }
 
         chain.doFilter(myRequest, res);
         System.out.println("Hello AuthFilter2 End");
