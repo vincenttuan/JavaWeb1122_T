@@ -9,17 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebFilter("/auth/*")
-public class ButhFilter1 extends HttpFilter {
+public class Filter1 extends HttpFilter {
 
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-        System.out.println("Hello ButhFilter1 Begin");
+        System.out.println("Hello Filter1 Begin");
         MyResponse myResponse = new MyResponse(res);
         chain.doFilter(req, myResponse);
         String html = myResponse.getHTMLString();
         html = html.replace("<body", "<body background=\"../images/watermark.jpg\"");
         res.getWriter().print(html);
-        System.out.println("Hello ButhFilter1 End");
+        System.out.println("Hello Filter1 End");
     }
     
 }

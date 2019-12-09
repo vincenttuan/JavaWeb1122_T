@@ -9,17 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebFilter("/auth/*")
-public class AuthFilter0 extends HttpFilter {
+public class Filter0 extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-        System.out.println("Hello AuthFilter0 Begin");
+        System.out.println("Hello Filter0 Begin");
         String email = req.getParameter("email");
         if(email != null && email.contains("yahoo.com.tw")) {
             chain.doFilter(req, res);
         } else {
             res.sendRedirect("../forms/auth_login.html");
         }
-        System.out.println("Hello AuthFilter0 End");
+        System.out.println("Hello Filter0 End");
     }
     
 }
