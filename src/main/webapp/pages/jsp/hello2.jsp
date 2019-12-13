@@ -18,8 +18,7 @@
             <%
                 String x = request.getParameter("x");
                 String y = request.getParameter("y");
-                out.print(add(x, y));
-
+                out.print(x + " + " + y + " = " + add(x, y));
             %>
         </h1>
     </body>
