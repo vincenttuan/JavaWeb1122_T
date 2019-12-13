@@ -14,11 +14,13 @@ public class Filter1 extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         System.out.println("Hello Filter1 Begin");
-        MyResponse myResponse = new MyResponse(res);
-        chain.doFilter(req, myResponse);
-        String html = myResponse.getHTMLString();
-        html = html.replace("<body", "<body background=\"../images/watermark.jpg\"");
-        res.getWriter().print(html);
+        MyRequest myRequest = new MyRequest(req);
+        String email = req.getParameter("email");
+        if(email != null) {
+            myRequest.setParameter("email", email.substring(0, email.indexOf("@")));
+        }
+
+        chain.doFilter(myRequest, res);
         System.out.println("Hello Filter1 End");
     }
     

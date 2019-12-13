@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
     <!-- Filter 實體配置 -->
     <filter>
         <filter-name>Filter0</filter-name>
@@ -33,13 +34,11 @@
         <servlet-name>lotto</servlet-name>
         <servlet-class>com.study.web.servlet.LottoServlet</servlet-class>
     </servlet>
-    
     <!-- 傳統 Servlet 執行路徑 -->
     <servlet-mapping>
         <servlet-name>lotto</servlet-name>
         <url-pattern>/servlet/lotto</url-pattern>
     </servlet-mapping>
-    
     <!-- Session 設定 -->
     <session-config>
         <session-timeout>
