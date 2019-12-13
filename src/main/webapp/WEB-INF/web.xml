@@ -13,6 +13,7 @@
         <filter-name>Filter2</filter-name>
         <filter-class>com.study.web.filter.Filter2</filter-class>
     </filter>
+    
     <!-- Filter 執行順序 -->
     <filter-mapping>
         <filter-name>Filter0</filter-name>
@@ -27,14 +28,19 @@
         <url-pattern>/auth/*</url-pattern>
     </filter-mapping>
     
+    <!-- 傳統 Servlet 實體配置 -->
     <servlet>
         <servlet-name>lotto</servlet-name>
         <servlet-class>com.study.web.servlet.LottoServlet</servlet-class>
     </servlet>
+    
+    <!-- 傳統 Servlet 執行路徑 -->
     <servlet-mapping>
         <servlet-name>lotto</servlet-name>
         <url-pattern>/servlet/lotto</url-pattern>
     </servlet-mapping>
+    
+    <!-- Session 設定 -->
     <session-config>
         <session-timeout>
             30
