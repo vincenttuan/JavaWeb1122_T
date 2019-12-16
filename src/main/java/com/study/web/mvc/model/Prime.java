@@ -5,7 +5,16 @@ import java.util.Map;
 import java.util.stream.IntStream;
 
 public class Prime {
-    static Map<Integer, Boolean> map = new LinkedHashMap<>();
+    static Map<Integer, Boolean> results = new LinkedHashMap<>();
+    
+    public boolean getResult(int n) {
+        results.put(n, isPrime(n));
+        return results.get(n);
+    }
+    
+    public Map<Integer, Boolean> getResults() {
+        return results;
+    }
     
     public boolean isPrime(int n) {
         if (n <= 1) return false;

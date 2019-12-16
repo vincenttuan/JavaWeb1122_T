@@ -13,6 +13,8 @@
                 <input type="number" placeholder="請輸入數字" name="number" value="${n}"><p />
                 <button type="submit" class="pure-button pure-button-primary">檢查</button><p />
                 ${result}
+                <hr>
+                ${results}
             </fieldset>
         </form>
     </body>

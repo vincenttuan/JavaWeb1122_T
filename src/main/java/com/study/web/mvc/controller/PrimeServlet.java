@@ -2,6 +2,7 @@ package com.study.web.mvc.controller;
 
 import com.study.web.mvc.model.Prime;
 import java.io.IOException;
+import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,10 +25,13 @@ public class PrimeServlet extends HttpServlet {
             case "/calc":
                 // 計算 prime
                 int n = Integer.parseInt(req.getParameter("number"));
-                boolean result = new Prime().isPrime(n);
+                Prime prime = new Prime();
+                boolean result = prime.getResult(n);
+                Map<Integer, Boolean> results = prime.getResults();
                 // setAttribute
                 req.setAttribute("n", n);
                 req.setAttribute("result", result);
+                req.setAttribute("results", results);
                 // 重導至 prime.jsp
                 rd.forward(req, resp);
                 break; 
