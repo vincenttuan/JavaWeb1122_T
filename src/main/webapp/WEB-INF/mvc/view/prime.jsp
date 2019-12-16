@@ -1,4 +1,6 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Map"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
         <title>Prime Number</title>
@@ -14,9 +16,25 @@
                 <button type="submit" class="pure-button pure-button-primary">檢查</button><p />
                 ${result}
                 <hr>
-                ${results}
             </fieldset>
         </form>
+        <table class="pure-table pure-table-bordered">
+            <thead>
+                <tr>
+                    <th>key</th>
+                    <th>value</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <c:forEach var="x" items="${results}">
+                <tr>
+                    <td>${x.key}</td>
+                    <td>${x.value}</td>
+                </tr>
+                </c:forEach>
+            </tbody>
+        </table>    
     </body>
 </html>
 
