@@ -16,7 +16,6 @@ public class Prime {
     
     public boolean isPrime_java8(int n) {
         if (n <= 1) return false;
-        
         return !IntStream.rangeClosed(2, n/2).anyMatch(i -> n % i == 0);
     }
     
