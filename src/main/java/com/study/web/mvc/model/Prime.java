@@ -9,7 +9,7 @@ public class Prime {
     
     public boolean getResult(int n) {
         // 檢查 n 是否已經存在?
-        if(results.keySet().stream().anyMatch(key -> key == 2)) {
+        if(results.keySet().stream().anyMatch(key -> key == n)) {
             return results.get(n);
         }
         results.put(n, isPrime(n));
