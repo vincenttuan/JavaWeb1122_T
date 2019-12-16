@@ -25,7 +25,6 @@
                     <th>value</th>
                 </tr>
             </thead>
-
             <tbody>
                 <c:forEach var="x" items="${results}">
                 <tr>
