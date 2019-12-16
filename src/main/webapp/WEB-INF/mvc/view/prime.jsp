@@ -27,7 +27,7 @@
             </thead>
             <tbody>
                 <c:forEach var="x" items="${results}">
-                <tr>
+                <tr style="cursor: hand" title="按我一下可刪除" onclick="location.href='./del?number=${x.key}'">
                     <td>${x.key}</td>
                     <td>${x.value}</td>
                 </tr>

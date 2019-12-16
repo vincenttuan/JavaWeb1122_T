@@ -17,6 +17,7 @@ public class PrimeServlet extends HttpServlet {
     private void doHandle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String path = req.getPathInfo();
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/mvc/view/prime.jsp");
+        Prime prime = new Prime();
         switch(path) {
             case "/input":
                 // 重導至空的 prime.jsp
@@ -25,7 +26,6 @@ public class PrimeServlet extends HttpServlet {
             case "/calc":
                 // 計算 prime
                 int n = Integer.parseInt(req.getParameter("number"));
-                Prime prime = new Prime();
                 boolean result = prime.getResult(n);
                 Map<Integer, Boolean> results = prime.getResults();
                 // setAttribute
@@ -35,6 +35,15 @@ public class PrimeServlet extends HttpServlet {
                 // 重導至 prime.jsp
                 rd.forward(req, resp);
                 break; 
+            case "/del":
+                // 刪除
+                int num = Integer.parseInt(req.getParameter("number"));
+                prime.del(num);
+                // setAttribute
+                req.setAttribute("results", prime.getResults());
+                // 重導至 prime.jsp
+                rd.forward(req, resp);
+                break;
             default:
                 resp.getWriter().println("fail path !");
         }

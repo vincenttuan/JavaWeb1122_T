@@ -7,6 +7,10 @@ import java.util.stream.IntStream;
 public class Prime {
     static Map<Integer, Boolean> results = new LinkedHashMap<>();
     
+    public void del(int n) {
+        results.remove(n);
+    }
+    
     public boolean getResult(int n) {
         // 檢查 n 是否已經存在?
         if(results.keySet().stream().anyMatch(key -> key == n)) {
