@@ -1,8 +1,12 @@
 package com.study.web.mvc.model;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.stream.IntStream;
 
 public class Prime {
+    static Map<Integer, Boolean> map = new LinkedHashMap<>();
+    
     public boolean isPrime(int n) {
         if (n <= 1) return false;
         // Java 7
