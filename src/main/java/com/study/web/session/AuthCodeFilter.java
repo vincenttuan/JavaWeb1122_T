@@ -21,8 +21,9 @@ public class AuthCodeFilter extends HttpFilter {
         HttpSession session = req.getSession();
         String code = req.getParameter("code");
         String authCode = session.getAttribute("authCode")+"";
-        System.out.println(code + ", " + authCode);
         boolean pass = code != null && code.equals(authCode) ? true : false;
+        
+        System.out.println(code + ", " + authCode + ", " + pass);
         
         if (pass) {
             chain.doFilter(req, resp); // 重導到下一頁
