@@ -15,6 +15,10 @@
                 <label for="remember">
                     <input type="checkbox" id="remember" name="remember" ${cookie.remember.getValue()}> Remember me
                 </label><p/>
+                <!-- 認證碼 -->
+                <input type="text" placeholder="請輸入認證碼" id="code" name="code">
+                <img src="/JavaWeb1122_T/servlet/AuthCodeServlet" valign="middle">
+                <p/>
                 <button type="submit" class="pure-button pure-button-primary">Sign in</button><p/>
                 ${message}
             </fieldset>
