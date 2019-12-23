@@ -26,6 +26,7 @@ public class LoginFilter extends HttpFilter {
 
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse resp, FilterChain chain) throws IOException, ServletException {
+        System.out.println("LoginFilter");
         HttpSession session = req.getSession();
         boolean pass = false;
 
@@ -33,7 +34,7 @@ public class LoginFilter extends HttpFilter {
             String username = req.getParameter("username");
             String password = req.getParameter("password");
             String remember = req.getParameter("remember");
-
+            
             pass = check(username, password); // 登入驗證
             if (pass) { // 登入是否成功
                 session.setAttribute("username", username); // 寫入 session 資料

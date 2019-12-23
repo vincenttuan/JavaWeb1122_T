@@ -18,14 +18,17 @@ public class AuthCodeFilter extends HttpFilter {
 
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse resp, FilterChain chain) throws IOException, ServletException {
+        System.out.println("AuthCodeFilter");
         HttpSession session = req.getSession();
         String code = req.getParameter("code");
         String authCode = session.getAttribute("authCode")+"";
-        boolean pass = code != null && code.equals(authCode) ? true : false;
+        Boolean authPass = Boolean.parseBoolean(session.getAttribute("authPass")+"");
+        boolean pass = authPass || (code != null && code.equals(authCode)) ? true : false;
         
         System.out.println(code + ", " + authCode + ", " + pass);
         
         if (pass) {
+            session.setAttribute("authPass", true);
             chain.doFilter(req, resp); // 重導到下一頁
         } else {
             session.invalidate(); // session 失效
