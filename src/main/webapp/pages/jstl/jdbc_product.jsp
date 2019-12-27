@@ -8,22 +8,21 @@
     product_id, purchase_cost, quantity_on_hand, (purchase_cost*quantity_on_hand) as subtotal, description
     FROM
     product
+    ORDER BY ${sortcolname} ${sortflag}
 </sql:query>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <%@ include file="head.jspf" %>
     </head>
     <body>
         <%@ include file="menu.jspf" %>
         <table class="pure-table pure-table-bordered" width="100%">
             <thead>
-                <tr>
+                <tr style="cursor: help" title="按我一下可以排序" >
                     <th>#</th>
-                    <th>product_id</th>
+                    <th onclick="sort('product_id')">product_id</th>
                     <th>purchase_cost</th>
                     <th>quantity_on_hand</th>
                     <th>subtotal</th>

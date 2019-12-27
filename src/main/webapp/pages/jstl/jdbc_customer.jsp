@@ -6,22 +6,21 @@
 <sql:query dataSource="${mydb}" var="customers">
     SELECT c.CUSTOMER_ID, c.DISCOUNT_CODE, c."NAME", c.PHONE, c.EMAIL, c.CREDIT_LIMIT 
     FROM APP.CUSTOMER c
+    ORDER BY ${sortcolname} ${sortflag}
 </sql:query>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <%@ include file="head.jspf" %>
     </head>
     <body>
         <%@ include file="menu.jspf" %>
         <table class="pure-table pure-table-bordered" width="100%">
             <thead>
-                <tr>
+                <tr style="cursor: help" title="按我一下可以排序" >
                     <th>#</th>
-                    <th>CUSTOMER_ID</th>
+                    <th onclick="sort('CUSTOMER_ID')">CUSTOMER_ID</th>
                     <th>DISCOUNT_CODE</th>
                     <th>NAME</th>
                     <th>PHONE</th>
