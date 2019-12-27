@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ include file="datasource.jspf" %>
-<c:set var="sortcolname" value="${param.sortcolname==null?'ORDER_NUM':param.sortcolname}"/>
+<c:set var="sortcolname" value="${param.sortcolname==null?'1':param.sortcolname}"/>
 <sql:query dataSource="${mydb}" var="views">
     SELECT 
         ORDER_NUM, CUSTOMER_NAME, PRODUCT_ID, PRODUCT_NAME,
