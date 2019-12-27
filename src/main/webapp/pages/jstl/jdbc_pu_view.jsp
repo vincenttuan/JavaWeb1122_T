@@ -4,12 +4,13 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ include file="datasource.jspf" %>
 <c:set var="sortcolname" value="${param.sortcolname==null?'1':param.sortcolname}"/>
+<c:set var="sortflag" value="${param.sortflag==null?'':param.sortflag}"/>
 <sql:query dataSource="${mydb}" var="views">
     SELECT 
         ORDER_NUM, CUSTOMER_NAME, PRODUCT_ID, PRODUCT_NAME,
         PURCHASE_COST, RATE, QUANTITY, SUBTOTAL
     FROM PU_VIEW
-    ORDER BY ${sortcolname} DESC
+    ORDER BY ${sortcolname} ${sortflag}
 </sql:query>
 
 <!DOCTYPE html>
@@ -20,10 +21,18 @@
         <title>JSP Page</title>
         <script>
             function sort(sortcolname) {
+                // 取得 url 全路徑
                 let url = new URL(location.href);
+                // 取得 url 參數路徑
                 var search_params = new URLSearchParams(url.search);
+                // 設定 sortcolname 參數
                 search_params.set('sortcolname', sortcolname);
+                // 設定 sortflag 參數
+                var sortflag = search_params.get('sortflag') == 'ASC' ? 'DESC' : 'ASC';
+                search_params.set('sortflag', sortflag);
+                // 更新 url 參數路徑
                 url.search = search_params.toString();
+                // 重導網頁
                 location.href = url.toString();
             }
         </script>
