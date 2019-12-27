@@ -7,6 +7,13 @@
                    url="jdbc:derby://localhost:1527/sample" 
                    user="app" 
                    password="app" />
+<sql:query dataSource="${mydb}" var="products">
+    SELECT 
+        product_id, purchase_cost, quantity_on_hand, (purchase_cost*quantity_on_hand) as subtotal, description
+    FROM 
+        product
+</sql:query>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,5 +22,6 @@
     </head>
     <body>
         <h1>${mydb}</h1>
+        <h1>${products}</h1>
     </body>
 </html>
