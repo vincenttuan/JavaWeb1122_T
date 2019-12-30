@@ -11,7 +11,20 @@
                     query();
                 });
             });
-
+            
+            function displaytable(result) {
+                result = JSON.parse(result); // 轉 json 物件
+                console.log(result);
+                $("#foodstable").find('tbody').empty();
+                $.each(result, function (i, value) {
+                    $("#foodstable").find('tbody')
+                            .append($('<tr>')
+                                    .append($('<td>').append(i))
+                                    .append($('<td>').append(value))
+                                    );
+                });
+            }
+            
             function query() {
                 var url = '../rest/foods';
                 $.ajax({
@@ -20,6 +33,7 @@
                     success: function (result) {
                         console.log(result);
                         $('#result').text(result);
+                        displaytable(result);
                     }
                 });
             }
