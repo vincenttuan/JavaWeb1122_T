@@ -34,14 +34,14 @@ public class Hellos {
     
     @PUT
     @Path("/{id}")
-    public String update(@PathParam("id") Integer id, @QueryParam("value") String value) {
+    public String update(@PathParam("id") int id, @QueryParam("value") String value) {
         hellos.set(id, value);
         return "update ok";
     }
     
     @DELETE
     @Path("/{id}")
-    public String delete(@PathParam("id") Integer id) {
+    public String delete(@PathParam("id") int id) {
         hellos.remove(id);
         return "delete ok";
     }
