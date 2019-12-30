@@ -22,6 +22,14 @@
                 $("#deleteBtn").click(function () {
                     del();
                 });
+                
+                $(document).on("click", "#foodstable tbody tr", function () {
+                    var id   = $(this).find('td:eq(0)').text();
+                    var value = $(this).find('td:eq(1)').text();
+                    $('#id').val(id);
+                    $('#value').val(value);
+                });
+                
             });
             
             function displaytable(result) {
