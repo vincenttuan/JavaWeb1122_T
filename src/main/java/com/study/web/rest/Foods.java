@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -28,14 +29,14 @@ public class Foods {
     }
     
     @POST
-    public String add(@QueryParam("value") String value) {
+    public String add(@FormParam("value") String value) {
         foods.add(value);
         return "add ok";
     }
     
     @PUT
     @Path("/{id}")
-    public String update(@PathParam("id") int id, @QueryParam("value") String value) {
+    public String update(@PathParam("id") int id, @FormParam("value") String value) {
         foods.set(id, value);
         return "update ok";
     }

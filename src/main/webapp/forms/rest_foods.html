@@ -10,6 +10,18 @@
                 $("#queryBtn").click(function () {
                     query();
                 });
+                $("#getBtn").click(function () {
+                    get();
+                });
+                $("#addBtn").click(function () {
+                    add();
+                });
+                $("#updateBtn").click(function () {
+                    update();
+                });
+                $("#deleteBtn").click(function () {
+                    del();
+                });
             });
             
             function displaytable(result) {
@@ -34,6 +46,64 @@
                         console.log(result);
                         $('#result').text(result);
                         displaytable(result);
+                    }
+                });
+            }
+            
+            function get() {
+                var id = $('#id').val();
+                var url = '../rest/foods/' + id;
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    success: function (result) {
+                        console.log(result);
+                        $('#result').text(result);
+                    }
+                });
+            }
+            
+            function add() {
+                var url = '../rest/foods';
+                var data = $('form').serialize();
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: data,
+                    success: function (result) {
+                        console.log(result);
+                        $('#result').text(result);
+                        query();
+                    }
+                });
+            }
+            
+            function update() {
+                var id = $('#id').val();
+                var url = '../rest/foods/' + id
+                var data = $('form').serialize();
+                $.ajax({
+                    url: url,
+                    type: 'PUT',
+                    data: data,
+                    success: function (result) {
+                        console.log(result);
+                        $('#result').text(result);
+                        query();
+                    }
+                });
+            }
+            
+            function del() {
+                var id = $('#id').val();
+                var url = '../rest/foods/' + id
+                $.ajax({
+                    url: url,
+                    type: 'DELETE',
+                    success: function (result) {
+                        console.log(result);
+                        $('#result').text(result);
+                        query();
                     }
                 });
             }
