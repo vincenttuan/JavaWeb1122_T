@@ -6,10 +6,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "T_User")
+@NamedQueries({
+    @NamedQuery(name="User.findAll",
+                query="SELECT c FROM User c"),
+    @NamedQuery(name="User.findByName",
+                query="SELECT c FROM User c WHERE c.name = :name"),
+    @NamedQuery(name="User.findByAge",
+                query="SELECT c FROM User c WHERE c.age = :age"),
+})
 public class User implements Serializable {
 
     @Id
