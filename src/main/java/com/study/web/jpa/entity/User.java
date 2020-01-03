@@ -46,5 +46,10 @@ public class User implements Serializable {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", name=" + name + ", age=" + age + '}';
+    }
+
     
 }
