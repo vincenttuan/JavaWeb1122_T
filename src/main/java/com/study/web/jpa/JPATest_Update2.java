@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 
 public class JPATest_Update2 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("demo");
         EntityManager em = emf.createEntityManager();
@@ -26,7 +26,7 @@ public class JPATest_Update2 {
             
             // 斷線
             em.detach(user);
-
+            
             // 傳入資料庫
             try {
                 em.getTransaction().begin();
