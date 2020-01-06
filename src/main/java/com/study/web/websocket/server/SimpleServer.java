@@ -13,7 +13,7 @@ public class SimpleServer {
     @OnOpen
     public void onOpen(Session session) {
         sessions.add(session);
-        System.out.printf("%s 連入, 目前人數: %d\n", session, sessions.size());
+        System.out.printf("%s 連入, 目前人數: %d\n", session.getId(), sessions.size());
         
     }
     @OnMessage
@@ -23,6 +23,6 @@ public class SimpleServer {
     @OnClose
     public void onClose(Session session) {
         sessions.remove(session);
-        System.out.printf("%s 登出, 目前人數: %d\n", session, sessions.size());
+        System.out.printf("%s 登出, 目前人數: %d\n", session.getId(), sessions.size());
     }
 }
