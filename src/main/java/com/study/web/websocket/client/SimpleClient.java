@@ -28,7 +28,10 @@ public class SimpleClient {
     }
     @OnMessage
     public void onMessage(String message, Session session) throws Exception {
-        
+        System.out.printf("%s 傳來: %s\n", session.getId(), message);
+        if (session.isOpen()) {
+            session.getAsyncRemote().sendText("訊息: " + message + ", sessionID: " + session.getId());
+        }
     }
     @OnClose
     public void onClose(Session session) {

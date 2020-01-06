@@ -10,7 +10,8 @@ window.onload = function() {
     });
     
     messageBtn.addEventListener("click", function () {
-        
+        var msg = message.value;
+        webSocket.send(msg);
     });
     
     closeBtn.addEventListener("click", function () {
@@ -32,8 +33,7 @@ window.onload = function() {
 
         // onmessage , 接收到來自Server的訊息時觸發
         webSocket.onmessage = function (event) {
-            
-            
+            messageDisplay.insertAdjacentHTML('afterbegin', event.data + "<br>");
         };
 
         // onclose , 連線關閉時觸發  
@@ -54,5 +54,4 @@ window.onload = function() {
     setWebSocket();
     
 }
-
 
