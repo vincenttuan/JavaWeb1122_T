@@ -13,6 +13,11 @@
             <form class="pure-form" onsubmit="return false;">
                 <fieldset>
                     <legend>Simple Client</legend>
+                    <select id="roomNo">
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                    </select>
                     <input type="text"   id="message"    value="Hello"   placeholder="請輸入訊息" /> <p />
                     <input type="button" id="openBtn"    value="Open"    class="pure-button pure-button-primary" /> 
                     <input type="button" id="messageBtn" value="Message" class="pure-button pure-button-primary" disabled /> 
