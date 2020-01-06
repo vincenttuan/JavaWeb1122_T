@@ -6,10 +6,22 @@
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            .div_right_bottom {
+                width:300px;
+                float:right;
+                position:fixed;
+                right:10px;
+                bottom:10px;
+                z-index:20;
+                border:1px solid #69c;
+                _position:absolute; /* position fixed for IE6 */
+            }
+        </style>
         <script src="ws.js"></script>
     </head>
     <body style="padding: 20px">
-        <div>
+        <div class="div_right_bottom">
             <form class="pure-form" onsubmit="return false;">
                 <fieldset>
                     <legend>Simple Client</legend>
@@ -24,7 +36,8 @@
                     <input type="button" id="closeBtn"   value="Close"   class="pure-button pure-button-primary" disabled /> 
                 </fieldset>
             </form>
+            <div id="messageDisplay"></div>
         </div>
-        <div id="messageDisplay"></div>
+        
     </body>
 </html>
