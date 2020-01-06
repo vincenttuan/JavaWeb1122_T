@@ -24,7 +24,7 @@ public class SimpleClient {
     
     @OnOpen
     public void onOpen(Session session) {
-        
+        System.out.printf("Client say: %s 已進入\n", session.getId());
     }
     @OnMessage
     public void onMessage(String message, Session session) throws Exception {
