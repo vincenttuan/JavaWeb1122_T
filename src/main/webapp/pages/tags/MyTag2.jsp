@@ -8,5 +8,6 @@
     </head>
     <body>
         <h1><my:prime num="${param.num}" /></h1>
+        <h1><my:fib num="${param.num}" /></h1>
     </body>
 </html>

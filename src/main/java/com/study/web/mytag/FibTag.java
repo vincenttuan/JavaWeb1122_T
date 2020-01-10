@@ -2,12 +2,13 @@ package com.study.web.mytag;
 
 import java.io.PrintWriter;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.Tag;
 
-public class PrimeTag implements Tag {
+public class FibTag implements Tag {
     private PageContext pageContext;
     private Tag parentTag;
     private int num;
@@ -46,8 +47,11 @@ public class PrimeTag implements Tag {
     public int doStartTag() throws JspException {
         try {
             JspWriter out = pageContext.getOut();
-            boolean check = IntStream.rangeClosed(2, num/2).noneMatch(i -> num % i == 0);
-            out.print(num + " : " + check);
+            long result = Stream.iterate(new long[]{1, 1}, f -> new long[]{f[1], f[0] + f[1]})
+                            .limit(num)
+                            .reduce((a, b) -> b)
+                            .get()[0];
+            out.print(num + " : " + result);
         } catch (Exception e) {
         }
         return Tag.SKIP_BODY;

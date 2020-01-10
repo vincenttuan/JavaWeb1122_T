@@ -3,16 +3,25 @@
   <tlib-version>1.0</tlib-version>
   <short-name>my</short-name>
   <uri>/WEB-INF/tlds/my</uri>
-  
   <tag>
-      <name>prime</name>
-      <tag-class>com.study.web.mytag.PrimeTag</tag-class>
-      <body-content>empty</body-content>
-      <attribute>
-          <name>num</name>
-          <required>true</required>
-          <rtexprvalue>true</rtexprvalue>
-      </attribute>
+    <name>prime</name>
+    <tag-class>com.study.web.mytag.PrimeTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>num</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
   </tag>
   
+  <tag>
+    <name>fib</name>
+    <tag-class>com.study.web.mytag.FibTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>num</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
 </taglib>
