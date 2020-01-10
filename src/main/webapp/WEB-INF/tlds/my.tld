@@ -8,6 +8,11 @@
       <name>prime</name>
       <tag-class>com.study.web.mytag.PrimeTag</tag-class>
       <body-content>empty</body-content>
+      <attribute>
+          <name>num</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
   </tag>
   
 </taglib>

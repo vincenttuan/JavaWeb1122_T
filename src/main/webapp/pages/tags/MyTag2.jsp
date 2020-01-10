@@ -7,6 +7,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1><my:prime /></h1>
+        <h1><my:prime num="${param.num}" /></h1>
     </body>
 </html>
