@@ -45,6 +45,7 @@ public class PrimeTag implements Tag {
     @Override
     public int doStartTag() throws JspException {
         try {
+            //PrintWriter out = pageContext.getResponse().getWriter();
             JspWriter out = pageContext.getOut();
             boolean check = IntStream.rangeClosed(2, num/2).noneMatch(i -> num % i == 0);
             out.print(num + " : " + check);
