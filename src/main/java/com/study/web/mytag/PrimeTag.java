@@ -1,39 +1,46 @@
 package com.study.web.mytag;
 
+import java.io.PrintWriter;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.Tag;
 
 public class PrimeTag implements Tag {
-
+    private PageContext pageContext;
+    private Tag parentTag;
     @Override
     public void setPageContext(PageContext pc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        pageContext = pc;
     }
 
     @Override
     public void setParent(Tag tag) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        parentTag = tag;
     }
 
     @Override
     public Tag getParent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return parentTag;
     }
 
     @Override
     public int doStartTag() throws JspException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            PrintWriter out = pageContext.getResponse().getWriter();
+            out.print("Hello Prime !");
+        } catch (Exception e) {
+        }
+        return Tag.SKIP_BODY;
     }
 
     @Override
     public int doEndTag() throws JspException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Tag.EVAL_PAGE;
     }
 
     @Override
     public void release() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }
