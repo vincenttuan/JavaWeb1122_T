@@ -9,9 +9,11 @@ import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.Tag;
 
 public class FibTag implements Tag {
+
     private PageContext pageContext;
     private Tag parentTag;
     private int num;
+
     @Override
     public void setPageContext(PageContext pc) {
         pageContext = pc;
@@ -42,15 +44,20 @@ public class FibTag implements Tag {
     public void setNum(int num) {
         this.num = num;
     }
-    
+
     @Override
     public int doStartTag() throws JspException {
         try {
             JspWriter out = pageContext.getOut();
-            long result = Stream.iterate(new long[]{1, 1}, f -> new long[]{f[1], f[0] + f[1]})
-                            .limit(num)
-                            .reduce((a, b) -> b)
-                            .get()[0];
+            long result = 0;
+            if (num == 0 || num == 1) {
+                result = num;
+            } else {
+                result = Stream.iterate(new long[]{1, 1}, f -> new long[]{f[1], f[0] + f[1]})
+                        .limit(num)
+                        .reduce((a, b) -> b)
+                        .get()[0];
+            }
             out.print(num + " : " + result);
         } catch (Exception e) {
         }
@@ -64,7 +71,7 @@ public class FibTag implements Tag {
 
     @Override
     public void release() {
-        
+
     }
-    
+
 }
