@@ -69,4 +69,10 @@
     </attribute>
   </tag>
   
+  <tag>
+      <name>stock2</name>
+      <tag-class>com.study.web.mytag.Stock2Tag</tag-class>
+      <body-content>scriptless</body-content>
+  </tag>
+  
 </taglib>

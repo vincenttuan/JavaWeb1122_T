@@ -13,5 +13,11 @@
         <h1>
             <my:stock symbol="USDTWD=x" />
         </h1>
+        
+        <h1>
+            <my:stock2>
+                2330.TW,1101.TW,USDTWD=x,TWDJPY=x
+            </my:stock2>
+        </h1>
     </body>
 </html>
