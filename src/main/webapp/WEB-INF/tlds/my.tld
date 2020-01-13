@@ -58,4 +58,15 @@
     </attribute>
   </tag>
   
+  <tag>
+      <name>stock</name>
+      <tag-class>com.study.web.mytag.StockTag</tag-class>
+      <body-content>empty</body-content>
+      <attribute>
+      <name>symbol</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
 </taglib>
