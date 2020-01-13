@@ -19,7 +19,7 @@ public class Stock2Tag extends SimpleTagSupport {
         StringWriter stringWriter = new StringWriter();
         getJspBody().invoke(stringWriter);
         
-        String symbols = stringWriter.toString();
+        String symbols = stringWriter.toString().trim();
         
         Arrays.asList(symbols.split(",")).stream()
                 .forEach(symbol -> {
